@@ -23,6 +23,9 @@ pull_all () {
     echo "Pulling $ASSIGNMENT_NAME for $USERNAME"
     cd $CLONED_DIR
     git pull
+    echo "Sleeping..."
+    echo "--------------------"
+    sleep 1
   done
 }
 
