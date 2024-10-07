@@ -10,6 +10,9 @@ clone_all () {
   for USERNAME in $(cat $USERNAMES_FILE); do
     REPO_NAME=$ASSIGNMENT_NAME-$USERNAME
     git clone "git@github.com:$ORG_NAME/$REPO_NAME" "assignments/$ASSIGNMENT_NAME/$USERNAME"
+    echo "Sleeping..."
+    echo "--------------------"
+    sleep 1
   done
 }
 
