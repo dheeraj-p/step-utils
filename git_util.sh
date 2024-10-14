@@ -8,8 +8,13 @@ USERNAMES_FILE="usernames"
 
 clone_all () {
   for USERNAME in $(cat $USERNAMES_FILE); do
+    CLONE_DIR="assignments/$ASSIGNMENT_NAME/$USERNAME"
+    if [ -d $CLONE_DIR ] ; then
+      continue  
+    fi
+    
     REPO_NAME=$ASSIGNMENT_NAME-$USERNAME
-    git clone "git@github.com:$ORG_NAME/$REPO_NAME" "assignments/$ASSIGNMENT_NAME/$USERNAME"
+    git clone "git@github.com:$ORG_NAME/$REPO_NAME" $CLONE_DIR
     echo "Sleeping..."
     echo "--------------------"
     sleep 1
