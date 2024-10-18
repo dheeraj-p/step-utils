@@ -23,11 +23,12 @@ clone_all () {
 
 pull_all () {
   WORKSPACE_DIR=$(pwd)
-  for USERNAME in $(cat $USERNAMES_FILE); do
+  for USERNAME in $(ls "assignments/$ASSIGNMENT_NAME"); do
     CLONED_DIR="assignments/$ASSIGNMENT_NAME/$USERNAME"
     
     echo "Pulling $ASSIGNMENT_NAME for $USERNAME"
     cd $CLONED_DIR
+    git checkout .
     git pull
     cd $WORKSPACE_DIR
     echo "Sleeping..."
